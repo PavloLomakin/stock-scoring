@@ -413,7 +413,7 @@ function applySort(){
   var rows=Array.prototype.slice.call(document.querySelectorAll('tr.main'));
   rows.sort(function(a,b){var va=parseFloat(a.dataset[k]),vb=parseFloat(b.dataset[k]);return d==='asc'?va-vb:vb-va;});
   var body=document.getElementById('body');
-  rows.forEach(function(r){var dd=document.querySelector('tr.detail[data-i="'+r.dataset.i+'"]');body.appendChild(r);body.appendChild(dd);r.querySelector('.rnk').textContent=Array.prototype.indexOf.call(body.querySelectorAll('tr.main'),r)+1;});
+  rows.forEach(function(r,idx){var dd=document.querySelector('tr.detail[data-i="'+r.dataset.i+'"]');body.appendChild(r);body.appendChild(dd);r.querySelector('.rnk').textContent=idx+1;});
   refreshVis();
 }
 function refreshVis(){
